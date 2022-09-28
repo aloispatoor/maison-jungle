@@ -1,4 +1,6 @@
 import { plantList } from '../data/plantList'
+import PlantItem from './PlantItem'
+import '../style/ShoppingList.css'
 
 function ShoppingList(){
     const solde = 'Soldes'
@@ -15,14 +17,13 @@ function ShoppingList(){
                 ))}
             </ul>
             <ul>
-                {plantList.map((plant) => (
-                    <li key={plant.id}>
-                        {plant.name}
-                        {plant.isBestSale && <span>🔥</span>}
-                        <div>
-                        {plant.isSpecialOffer && <span>{solde}</span>}
-                        </div>
-                    </li>
+                {plantList.map(({ id, name, water, light }) => (
+                    <PlantItem
+                        id={id}
+                        name={name}
+                        water={water}
+                        light={light}
+                    />
                 ))}
             </ul>
         </div>
